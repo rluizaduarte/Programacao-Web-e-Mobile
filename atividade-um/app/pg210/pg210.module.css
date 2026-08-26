@@ -1,0 +1,15 @@
+.container {
+  background-image: url("/bg-210.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo {
+  background-color: red;
+  border: 2px solid green;
+  padding: 10px;
+}
