@@ -1,0 +1,24 @@
+.produtos {
+  display: flex;
+  gap: 10px;
+}
+
+.produto {
+  background-color: green;
+  color: white;
+  width: 150px;
+  padding: 10px;
+  text-align: center;
+}
+
+.produto img {
+  width: 100%;
+}
+
+.rodape {
+  background-color: gray;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
