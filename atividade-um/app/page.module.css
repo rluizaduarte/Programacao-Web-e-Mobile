@@ -1,0 +1,70 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+}
+
+.header {
+  align-items: center;
+  background-color: white;
+  color: black;
+  padding: 20px 40px;
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.header a:hover {
+  color: gray;
+  text-decoration: underline;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.main nav {
+  display: flex;
+  gap: 16px;
+}
+
+.main nav a {
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 2px;
+}
+
+.main nav a:hover {
+  background-color: gray;
+}
+
+.footer {
+  align-items: center;
+  background-color: white;
+  color: black;
+  padding: 20px 40px;
+}
+
+.footer nav {
+  display: flex;
+  gap: 5px;
+}
+
+.footer nav a {
+  text-decoration: none;
+}
+
+.footer nav a:hover {
+  color: gray;
+  text-decoration: underline;
+}
