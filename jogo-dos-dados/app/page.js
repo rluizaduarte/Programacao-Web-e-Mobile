@@ -1,5 +1,9 @@
+import JogoDados from "./components/JogoDados";
+
 export default function Home() {
   return (
-    <h1>Jogo dos dados</h1>
+    <main>
+      <JogoDados />
+    </main>
   );
 }

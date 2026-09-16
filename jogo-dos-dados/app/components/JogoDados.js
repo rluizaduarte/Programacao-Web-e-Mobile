@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Dado from "./Dado";
 
 function rolarDado() {
     return Math.floor(Math.random() * 6) + 1;
