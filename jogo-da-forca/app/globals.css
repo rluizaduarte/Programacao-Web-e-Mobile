@@ -12,6 +12,7 @@ faz o padding e a borda ficarem dentro da largura do elemento*/
 
 html,
 body {
+  zoom: 1.07;
   margin: 0;
   padding: 0;
   background: var(--papel);
