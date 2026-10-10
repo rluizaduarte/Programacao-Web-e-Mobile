@@ -112,8 +112,8 @@ export default function Home() {
   // qtd de erros = tamanho da lista de letras erradas
   const erros = erradas.length;
   // possibilidades do jogo
-  const ganhou = palavra;
-  palavra !== "" &&
+  const ganhou =
+    palavra !== "" &&
     palavra
       .split("")
       .every((letra) => letra === " " || chutadas.includes(letra));
