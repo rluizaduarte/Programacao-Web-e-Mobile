@@ -1,150 +1,306 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-}
-
-.main {
-  display: flex;
-  flex: 1;
+/* container principal: centraliza o jogo e limita a largura */
+.pagina {
   width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+.titulo {
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 0.3em;
+  text-align: center;
+  margin: 0 0 4px;
+}
+
+.subtitulo {
+  text-align: center;
+  font-size: 0.85rem;
+  margin: 0 0 28px;
+}
+
+/* PALCO (forca e foto)*/
+
+/* grid com 2 colunas do mesmo tamanho: forca de um lado e foto do outro */
+.palco {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 24px;
+  align-items: center;
+  border: var(--traco) solid var(--tinta);
+  padding: 24px;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+/* FORCA E BONECO PALITO */
+
+/* caixa da forca "relative" p posicionar cada pedaço c "absolute" usando left/top/bottom dentro dela */
+.forca {
+  position: relative;
+  width: 220px;
+  height: 280px;
+  margin: 0 auto;
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
+.base,
+.poste,
+.viga,
+.corda,
+.tronco,
+.bracoEsq,
+.bracoDir,
+.pernaEsq,
+.pernaDir {
+  position: absolute;
+  background: var(--tinta);
 }
 
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
+/* sstrutura da forca q sempre aparece */
+.base {
+  left: 10px;
+  bottom: 0;
+  width: 200px;
+  height: var(--traco);
+} /* chão */
+.poste {
+  left: 40px;
+  bottom: 0;
+  width: var(--traco);
+  height: 270px;
+} /* poste vertical */
+.viga {
+  left: 40px;
+  top: 10px;
+  width: 120px;
+  height: var(--traco);
+} /* trave de cima */
+.corda {
+  left: 160px;
+  top: 10px;
+  width: var(--traco);
+  height: 30px;
+} /* corda */
+
+.cabeca {
+  position: absolute;
+  left: 145px;
+  top: 40px;
+  width: 31px;
+  height: 31px;
+  border: var(--traco) solid var(--tinta);
+  border-radius: 50%;
 }
 
-.ctas {
-  display: flex;
-  flex-direction: row;
+.tronco {
+  left: 160px;
+  top: 71px;
+  width: var(--traco);
+  height: 70px;
+}
+
+.bracoEsq,
+.bracoDir,
+.pernaEsq,
+.pernaDir {
+  height: var(--traco);
+}
+
+.bracoDir {
+  left: 160px;
+  top: 88px;
+  width: 42px;
+  transform-origin: left center;
+  transform: rotate(28deg);
+}
+.bracoEsq {
+  left: 118px;
+  top: 88px;
+  width: 43px;
+  transform-origin: right center;
+  transform: rotate(-28deg);
+}
+.pernaDir {
+  left: 160px;
+  top: 141px;
+  width: 56px;
+  transform-origin: left center;
+  transform: rotate(58deg);
+}
+.pernaEsq {
+  left: 105px;
+  top: 141px;
+  width: 56px;
+  transform-origin: right center;
+  transform: rotate(-58deg);
+}
+
+/* fade rápido quando o jogador erra */
+.parte {
+  animation: desenhar 0.25s ease-out;
+}
+
+@keyframes desenhar {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* FOTO DE REAÇÃO */
+
+.reacao {
+  text-align: center;
+}
+
+.reacao img {
   width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
-.ctas a {
+/* PALAVRA */
+
+/* flex com wrap: se a palavra for grande, as letras quebram de linha */
+.palavra {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 32px 0 8px;
+  min-height: 2.9rem;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
+/* cada espaço da palavra: só a linha de baixo (o underline) */
+.espaco {
+  width: 1.6ch;
+  min-width: 28px;
+  text-align: center;
+  font-size: 2.2rem;
+  border-bottom: var(--traco) solid var(--tinta);
+  height: 2.9rem;
+  line-height: 2.6rem;
+}
+
+/* LETRAS TENTADAS */
+
+.tentadas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+  font-size: 0.95rem;
+}
+
+.tentadas h2 {
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin: 0 0 8px;
+  border-bottom: var(--traco) solid var(--tinta);
+  padding-bottom: 4px;
+}
+
+.fichas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 34px;
+}
+
+.ficha {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: var(--traco) solid var(--tinta);
+}
+
+/* errada = riscada, certa = fundo preto com letra branca */
+.fichaErrada {
+  text-decoration: line-through;
+}
+.fichaCerta {
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+/* CLAUDE CODE: TECLADO VIRTUAL */
+
+.teclas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.tecla {
+  width: 42px;
+  height: 42px;
+  font-size: 1rem;
+  background: var(--papel);
+  color: var(--tinta);
+  border: var(--traco) solid var(--tinta);
+  cursor: pointer;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+.tecla:hover:not(:disabled) {
+  background: var(--tinta);
+  color: var(--papel);
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
+.tecla:focus-visible,
+.botaoReiniciar:focus-visible {
+  outline: 2px solid var(--tinta);
+  outline-offset: 3px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+.tecla:disabled {
+  cursor: not-allowed;
+  border-style: dashed;
+  color: #777;
 }
 
-.code {
-  font-family: var(--font-geist-mono);
-  font-size: 0.9em;
-  background: color-mix(in srgb, currentColor 8%, transparent);
-  padding: 0.1em 0.4em;
-  border-radius: 6px;
+.teclaCerta:disabled {
+  background: var(--tinta);
+  color: var(--papel);
+  border-style: solid;
+}
+
+.teclaErrada:disabled {
+  text-decoration: line-through;
+}
+
+/* RESULTADO E REINICIAR */
+
+.resultado {
+  text-align: center;
+  margin: 28px 0 0;
+  padding: 18px;
+  border: var(--traco) solid var(--tinta);
+}
+
+.resultado p {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+}
+
+.botaoReiniciar {
+  padding: 10px 28px;
+  background: var(--tinta);
+  color: var(--papel);
+  border: var(--traco) solid var(--tinta);
+  cursor: pointer;
+}
+
+.botaoReiniciar:hover {
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+.rodape {
+  text-align: center;
+  margin-top: 24px;
 }
