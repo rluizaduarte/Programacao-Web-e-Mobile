@@ -112,9 +112,11 @@ export default function Home() {
   // qtd de erros = tamanho da lista de letras erradas
   const erros = erradas.length;
   // possibilidades do jogo
-  const ganhou =
-    palavra !== "" &&
-    palavra.split("").every((letra) => chutadas.includes(letra));
+  const ganhou = palavra;
+  palavra !== "" &&
+    palavra
+      .split("")
+      .every((letra) => letra === " " || chutadas.includes(letra));
   const perdeu = erros >= MAX_ERROS;
   const fimDeJogo = ganhou || perdeu;
 
@@ -187,11 +189,17 @@ export default function Home() {
       </section>
 
       <div className={styles.palavra} aria-label="Palavra secreta">
-        {palavra.split("").map((letra, i) => (
-          <span className={styles.espaco} key={i}>
-            {chutadas.includes(letra) || perdeu ? letra : ""}
-          </span>
-        ))}
+        {palavra.split("").map((letra, i) => {
+          if (letra === " ") {
+            return <span className={styles.separador} key={i} />;
+          }
+
+          return (
+            <span className={styles.espaco} key={i}>
+              {chutadas.includes(letra) || perdeu ? letra : ""}
+            </span>
+          );
+        })}
       </div>
 
       {/* duas listas: letras certas e letras erradas */}

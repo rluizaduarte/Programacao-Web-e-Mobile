@@ -185,6 +185,11 @@
   line-height: 2.6rem;
 }
 
+.separador {
+  width: 24px;
+  height: 2.9rem;
+}
+
 /* LETRAS TENTADAS */
 
 .tentadas {
