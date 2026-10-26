@@ -1,9 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 export default function Index() {
   return (
     <View style={styles.container}>
+      <Image source={require("../../assets/foto.png")} style={styles.foto} />
+
       <Text style={styles.nome}>Rielly Duarte</Text>
       <Text style={styles.bio}>
         Oi. Sou estudante de Ciência da Computação, gosto de criar aplicativos e
@@ -24,11 +26,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 24,
   },
+  foto: {
+    width: 160,
+    height: 160,
+    borderRadius: 80,
+    marginBottom: 20,
+  },
   nome: {
     fontSize: 28,
     fontWeight: "bold",
     color: "#fff",
-    backgroundColor: "#6C3CE9",
+    backgroundColor: "gray",
     paddingHorizontal: 16,
     paddingVertical: 6,
     borderRadius: 8,
