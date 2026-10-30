@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, StyleSheet } from "react-native";
 import Dado from "./Dado";
 
 function rolarDado() {
@@ -118,3 +118,18 @@ export default function JogoDados() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 16,
+  },
+  titulo: { fontSize: 28, fontWeight: "bold" },
+  subtitulo: { fontSize: 20, marginBottom: 16 },
+  jogador: { alignItems: "center", marginBottom: 16 },
+  nome: { fontSize: 18, marginBottom: 8 },
+  dados: { flexDirection: "row", gap: 8, marginBottom: 8 },
+  resultado: { fontSize: 18, marginVertical: 12 },
+});
