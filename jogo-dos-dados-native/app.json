@@ -2,6 +2,7 @@
   "expo": {
     "name": "jogo-dos-dados-native",
     "slug": "jogo-dos-dados-native",
+    "owner": "riellyduartes-team",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -37,6 +38,22 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "68b8d622-1bcc-4dd6-a5c1-d2e239a438e5"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/68b8d622-1bcc-4dd6-a5c1-d2e239a438e5"
     }
   }
 }
